@@ -1,13 +1,16 @@
 # Python
 __pycache__/
 *.pyc
-env/
+*.pyo
+*.pyd
 venv/
+env/
 
-# Node
-node_modules/
-build/
-
-# General
-.DS_Store
+# Entorno
 .env
+
+# VSCode
+.vscode/
+
+# Otros
+.DS_Store
