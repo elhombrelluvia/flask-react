@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComercioTech - Demo Frontend</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>ComercioTech - Demo API</h1>
+
+        <!-- Navegación -->
+        <nav>
+            <button onclick="showSection('clientes')">Clientes</button>
+            <button onclick="showSection('productos')">Productos</button>
+            <button onclick="showSection('pedidos')">Pedidos</button>
+        </nav>
+
+        <!-- Sección Clientes -->
+        <section id="clientes" class="section">
+            <h2>Gestión de Clientes</h2>
+            <div class="actions">
+                <button onclick="listarClientes()">Listar Clientes</button>
+                <button onclick="mostrarFormCliente()">Agregar Cliente</button>
+            </div>
+
+            <div id="form-cliente" class="form-container" style="display: none;">
+                <h3>Nuevo Cliente</h3>
+                <input type="text" id="cliente-rut" placeholder="RUT (sin puntos ni guión)">
+                <input type="text" id="cliente-nombre" placeholder="Nombre">
+                <input type="text" id="cliente-apellido" placeholder="Apellido">
+                <button onclick="crearCliente()">Crear</button>
+                <button onclick="cancelarForm()">Cancelar</button>
+            </div>
+
+            <div id="buscar-cliente">
+                <input type="text" id="buscar-rut" placeholder="Buscar por RUT">
+                <button onclick="buscarCliente()">Buscar</button>
+            </div>
+
+            <div id="resultado-clientes" class="resultado"></div>
+        </section>
+
+        <!-- Sección Productos -->
+        <section id="productos" class="section" style="display: none;">
+            <h2>Gestión de Productos</h2>
+            <div class="actions">
+                <button onclick="listarProductos()">Listar Productos</button>
+                <button onclick="mostrarFormProducto()">Agregar Producto</button>
+            </div>
+
+            <div id="form-producto" class="form-container" style="display: none;">
+                <h3>Nuevo Producto</h3>
+                <input type="text" id="producto-nombre" placeholder="Nombre">
+                <input type="text" id="producto-categoria" placeholder="Categoría">
+                <input type="number" id="producto-precio" placeholder="Precio">
+                <input type="number" id="producto-stock" placeholder="Stock">
+                <input type="text" id="producto-codigo" placeholder="Código de barra (8-13 dígitos)">
+                <button onclick="crearProducto()">Crear</button>
+                <button onclick="cancelarForm()">Cancelar</button>
+            </div>
+
+            <div id="buscar-producto">
+                <input type="text" id="buscar-codigo" placeholder="Buscar por código de barra">
+                <button onclick="buscarProducto()">Buscar</button>
+            </div>
+
+            <div id="resultado-productos" class="resultado"></div>
+        </section>
+
+        <!-- Sección Pedidos -->
+        <section id="pedidos" class="section" style="display: none;">
+            <h2>Gestión de Pedidos</h2>
+            <div class="actions">
+                <button onclick="listarPedidos()">Listar Pedidos</button>
+                <button onclick="mostrarFormPedido()">Crear Pedido</button>
+            </div>
+
+            <div id="form-pedido" class="form-container" style="display: none;">
+                <h3>Nuevo Pedido</h3>
+                <label for="pedido-cliente-select">Cliente:</label>
+                <select id="pedido-cliente-select">
+                    <option value="">Seleccione un cliente</option>
+                </select>
+
+                <div id="productos-pedido">
+                    <h4>Productos del pedido:</h4>
+                    <div class="producto-item">
+                        <select class="producto-select">
+                            <option value="">Seleccione un producto</option>
+                        </select>
+                        <input type="number" class="cantidad" placeholder="Cantidad" min="1" max="999">
+                    </div>
+                </div>
+                <button onclick="agregarProductoPedido()">+ Agregar Producto</button>
+                <button onclick="crearPedido()">Crear Pedido</button>
+                <button onclick="cancelarForm()">Cancelar</button>
+            </div>
+
+            <div id="resultado-pedidos" class="resultado"></div>
+        </section>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/clientes.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/pedidos.js"></script>
+</body>
+
+</html>
